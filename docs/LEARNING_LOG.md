@@ -31,3 +31,16 @@ Running notes on what was built and learned, written as we go.
 - Python silently let the second definition overwrite the first — no error, no warning; the LEI test just vanished (pytest reported 10 tests, not the expected 11)
 - Lesson: prefix test names with what they test (`test_lei_...`, `test_isin_...`) to prevent silent collisions as the suite grows
 - Fixed by renaming to `test_lei_rejects_wrong_length` / `test_isin_rejects_wrong_length` — 11 tests, all passing
+
+## Day 2
+
+## Day 2
+
+### Full RTS 22 field model
+- Sourced the actual legal text: Commission Delegated Regulation (EU) 2017/590, Annex I, Table 2 (legislation.gov.uk assimilated law text), cross-checked fields 64-65 against FCA guidance
+- Found and fixed a real bug from the original project: short selling indicator field used an invented code `SHOR` — the real RTS 22 values are `SESH`/`SSEX`/`SELL`/`UNDI`
+- Learned the real buyer/seller identification model: not a single buy/sell flag, but separate, richly-conditional identification fields (LEI, MIC, national ID, or 'INTC') for both buyer and seller on every report
+- Learned that most of RTS 22's 65 fields are conditional — a simple on-venue equity trade legitimately leaves 35+ fields blank; fields 42-56 only apply to instruments not already in ESMA's reference data
+- Built: `docs/rts22_field_reference.md` (full field table), `src/mapping/rts22_fields.py` (machine-readable version), `src/mapping/field_mapper.py`
+- Learned Python: list comprehensions, dict comprehensions, `csv.DictReader`
+- All 18 tests passing, including a full sweep of every row in the sample dataset

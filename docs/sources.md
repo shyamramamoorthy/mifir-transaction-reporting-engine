@@ -12,3 +12,5 @@ Primary sources read and used to build this project.
 | ISIN structure & check digit (ISO 6166, Annex C) | ANNA — ISO 6166 Maintenance Agency | https://anna-web.org/identifiers/ |
 | ISIN format reference | ISIN Organization | https://www.isin.org/isin-format/ |
 | Apple Inc. ISIN (worked example, US0378331005) | Common public reference example | https://www.isin.net/iso-6166/ |
+| RTS 22 full field table (Annex I, Table 2) | Commission Delegated Regulation (EU) 2017/590 — legislation.gov.uk assimilated text | https://www.legislation.gov.uk/eur/2017/590/annexes |
+| RTS 22 fields 64–65 clarification | FCA — Supervisory flexibility on transaction reporting | https://www.fca.org.uk/news/statements/supervisory-flexibility-transaction-reporting |
