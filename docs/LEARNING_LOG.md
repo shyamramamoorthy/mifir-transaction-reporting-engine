@@ -32,7 +32,6 @@ Running notes on what was built and learned, written as we go.
 - Lesson: prefix test names with what they test (`test_lei_...`, `test_isin_...`) to prevent silent collisions as the suite grows
 - Fixed by renaming to `test_lei_rejects_wrong_length` / `test_isin_rejects_wrong_length` — 11 tests, all passing
 
-## Day 2
 
 ## Day 2
 
@@ -44,3 +43,16 @@ Running notes on what was built and learned, written as we go.
 - Built: `docs/rts22_field_reference.md` (full field table), `src/mapping/rts22_fields.py` (machine-readable version), `src/mapping/field_mapper.py`
 - Learned Python: list comprehensions, dict comprehensions, `csv.DictReader`
 - All 18 tests passing, including a full sweep of every row in the sample dataset
+
+
+## Day 3
+
+### Natural person identifiers (Article 6 & Annex II)
+- Learned the real model: a natural person's identifier is nationality code + national ID concatenated, not the national ID alone
+- Learned the CONCAT fallback construction exactly: DOB (YYYYMMDD) + first 5 chars of first name + first 5 chars of surname, accents/punctuation/spaces stripped, upper-cased, padded with '#' if short
+- Learned Article 6(3)'s nationality tie-break for dual nationals (EEA takes priority; alphabetically first if multiple EEA)
+- Noticed GB still appears in Annex II because the table predates Brexit -- live example of UK/EU regulatory divergence
+- Learned Python: `unicodedata.normalize()` for accent stripping, `str.ljust()` for padding
+- Built: `src/identifiers/national_id.py`
+- Caveat logged honestly: a couple of Annex II rows (Germany especially) had ambiguous PDF-extraction formatting, flagged in code comments rather than guessed at; the non-EEA tie-break rule is our own default, not specified in the text
+- All 27 tests passing

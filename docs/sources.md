@@ -14,3 +14,6 @@ Primary sources read and used to build this project.
 | Apple Inc. ISIN (worked example, US0378331005) | Common public reference example | https://www.isin.net/iso-6166/ |
 | RTS 22 full field table (Annex I, Table 2) | Commission Delegated Regulation (EU) 2017/590 — legislation.gov.uk assimilated text | https://www.legislation.gov.uk/eur/2017/590/annexes |
 | RTS 22 fields 64–65 clarification | FCA — Supervisory flexibility on transaction reporting | https://www.fca.org.uk/news/statements/supervisory-flexibility-transaction-reporting |
+
+| RTS 22 Article 6 (natural person identification) | Commission Delegated Regulation (EU) 2017/590, Article 6 — legislation.gov.uk | https://www.legislation.gov.uk/eur/2017/590/article/6/adopted |
+| RTS 22 Annex II (national client identifiers) | ESMA/2016/1064 | https://www.esma.europa.eu/sites/default/files/library/2016-1064_rts_22_annex_ii.pdf.pdf |
