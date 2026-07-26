@@ -66,3 +66,20 @@ Running notes on what was built and learned, written as we go.
 - Hit and fixed a copy-paste data bug independently of the code: one row (`TRD-001` seller LEI) didn't take on manual edit twice; resolved by replacing the whole CSV file rather than patching in place
 - Logged two honest known gaps rather than hiding them: `TRD-011`'s original test intent (invalid `buy_sell`) no longer applies under the corrected data model; `TRD-014`'s bad venue code isn't yet caught because real MIC-registry validation isn't built
 - All 33 tests passing
+
+## Day 5
+
+Built the lifecycle and export pieces of the engine.
+
+**Report lifecycle (`src/lifecycle/report_status.py`)**
+- MiFIR Article 26(1) sets a T+1 deadline: reports must reach the NCA by the end of the next working day after the trade. `next_working_day_deadline()` adds a day then skips forward over Saturday/Sunday.
+- There's no "amend" status in MiFIR reporting. To correct a report, you cancel the original (CANC) and submit a fresh one (NEWT) — `correct_report()` returns both in that order.
+
+**XML export (`src/export/xml_writer.py`)**
+- Learned `xml.etree.ElementTree`: `ET.Element` for a root tag, `ET.SubElement(parent, tag)` to nest children, `.text` to set content, `ET.tostring()` to serialize.
+- Used the real ESMA ISO 20022 tag names (`auth.016.001.01` schema) from the Technical Reporting Instructions — TxId, ExctgPty, Buyr/AcctOwnr/Id/LEI, TradVn, etc. — rather than inventing plausible-looking tags.
+- A cancellation record uses a `<Cxl>` block with just enough fields to identify the report; a new report uses a `<New>` block with the full trade detail. Confirmed this structurally by testing that `<Pric>` and `<TradVn>` never appear in a cancellation.
+
+**Tests:** 43 passing (39 + 4 new for the XML writer).
+
+**Source:** MiFIR Article 26(1) (T+1 deadline); ESMA/2016/1521 Technical Reporting Instructions, section 6.2 (auth.016.001.01 schema tags).
