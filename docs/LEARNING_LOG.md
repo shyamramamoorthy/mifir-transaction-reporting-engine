@@ -56,3 +56,13 @@ Running notes on what was built and learned, written as we go.
 - Built: `src/identifiers/national_id.py`
 - Caveat logged honestly: a couple of Annex II rows (Germany especially) had ambiguous PDF-extraction formatting, flagged in code comments rather than guessed at; the non-EEA tie-break rule is our own default, not specified in the text
 - All 27 tests passing
+
+## Day 4
+
+### Validation engine
+- Learned Python: classes (`class ValidationEngine:`, `self`, methods vs standalone functions) — chosen because Day 6 will need multiple configured instances (UK vs EU rule sets)
+- Built `src/validation/engine.py`: REQUIRED, FORMAT (reusing lei.py/isin.py directly — first real payoff of Day 1's work), ALLOWED_VALUES, and MIN_VALUE checks
+- Fixed a real data-quality issue: several "clean" sample trades still had placeholder or checksum-invalid LEIs from earlier project versions — replaced with real, verified LEIs (HSBC, BNP Paribas, two IBM entities) so the happy path is actually meaningful
+- Hit and fixed a copy-paste data bug independently of the code: one row (`TRD-001` seller LEI) didn't take on manual edit twice; resolved by replacing the whole CSV file rather than patching in place
+- Logged two honest known gaps rather than hiding them: `TRD-011`'s original test intent (invalid `buy_sell`) no longer applies under the corrected data model; `TRD-014`'s bad venue code isn't yet caught because real MIC-registry validation isn't built
+- All 33 tests passing
