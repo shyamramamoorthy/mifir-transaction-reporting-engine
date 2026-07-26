@@ -120,3 +120,35 @@ depend on.
 **Tests:** 49 passing (43 + 6 new for scope_rules.py).
 
 **Source:** FCA CP25/32 (21 Nov 2025), paragraphs 1.6, 4.49, 4.83–4.96.
+
+## Day 7
+
+Capstone day: no new domain rules, just making sure the six days of work
+actually hold together as one thing.
+
+**Integration test (`tests/test_integration.py`)**
+- Learned the difference between a unit test (checks one function alone,
+  with hand-built input) and an integration test (checks that separately
+  built pieces actually work together end-to-end).
+- Took a real trade from `data/sample_trades.csv` through the full
+  pipeline: `map_trade_to_rts22` → `ValidationEngine.validate` →
+  `build_transaction_xml`, and confirmed a broken trade gets caught by
+  validation *before* it would ever reach XML export — which is the
+  actual point of having validation as a separate step.
+
+**README rewrite**
+- Turned the Day 1 stub into a real front door: what the project is, why
+  it exists, a module map, how to run everything, and an honest status
+  section (which fields are wired end-to-end vs. just modelled).
+- Added an explicit "this is a learning project, not production reporting
+  software" line — the value here is demonstrated field-level fluency,
+  not a claim that this could plug into an ARM.
+
+**Commit history review**
+- Looked back over the week's commits as a body of work: each one scoped
+  to a single day's topic, message describing what changed and why,
+  rather than one giant end-of-week commit. That history is itself part
+  of what's being demonstrated.
+
+**Tests:** 51 passing, all verified via fresh `git clone` after every
+day's push — nothing in this repo has ever been taken on faith.
