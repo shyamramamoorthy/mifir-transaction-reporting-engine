@@ -1,0 +1,6 @@
+trade_id,description,trading_venue,asset_class,underlying_traded_on_uk_venue
+SCOPE-001,UK-listed equity (Barclays),XLON,EQUITY,
+SCOPE-002,EU-listed equity only (Deutsche Bank),XETR,EQUITY,
+SCOPE-003,EUR/USD FX forward traded on an EU venue,XEUR,FX_DERIVATIVE,
+SCOPE-004,Equity option on an EU venue with UK-traded underlying,XEUR,EQUITY_DERIVATIVE,true
+SCOPE-005,Equity option on an EU venue with EU-only underlying,XEUR,EQUITY_DERIVATIVE,

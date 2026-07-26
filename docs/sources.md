@@ -18,3 +18,4 @@ Primary sources read and used to build this project.
 | RTS 22 Annex II (national client identifiers) | ESMA/2016/1064 | https://www.esma.europa.eu/sites/default/files/library/2016-1064_rts_22_annex_ii.pdf.pdf |
 | MiFIR T+1 reporting deadline | MiFIR Article 26(1) | https://www.legislation.gov.uk/eur/2014/600/article/26 |
 | ISO 20022 auth.016.001.01 XML schema tags | ESMA/2016/1521 Technical Reporting Instructions, section 6.2 | https://www.esma.europa.eu/sites/default/files/library/2016-1521_guidelines_mifid_ii_transaction_reporting.pdf |
+| UK vs EU MiFIR reporting scope (proposed reform) | FCA CP25/32, "Improving the UK transaction reporting regime" | https://www.fca.org.uk/publication/consultation/cp25-32.pdf |

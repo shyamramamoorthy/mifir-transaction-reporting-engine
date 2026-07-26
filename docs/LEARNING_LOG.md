@@ -83,3 +83,40 @@ Built the lifecycle and export pieces of the engine.
 **Tests:** 43 passing (39 + 4 new for the XML writer).
 
 **Source:** MiFIR Article 26(1) (T+1 deadline); ESMA/2016/1521 Technical Reporting Instructions, section 6.2 (auth.016.001.01 schema tags).
+
+
+## Day 6
+
+Built the UK vs EU regime divergence engine — the trickiest day so far,
+because the "divergence" isn't settled law yet.
+
+**What I learned about the regulatory landscape:**
+- UK MiFIR today still covers instruments traded on EU venues, not just UK
+  ones — a leftover of how Brexit onshored EU law wholesale rather than
+  redesigning it.
+- The FCA's CP25/32 consultation (Nov 2025) proposes narrowing that scope
+  to UK venues only, and removing FX derivatives from UK reporting
+  entirely. This is a live, unfinished process — consultation closed
+  Feb 2026, final rules expected H2 2026, not yet published as of today.
+- Encoding "this is proposed, not current" directly in code comments and
+  docs, rather than presenting it as settled fact, felt like the right
+  discipline — same as flagging an assumption in a BRD before it gets
+  mistaken for a confirmed requirement.
+
+**Python concept: `argparse`**
+- Built `src/regime/cli.py` as an actual command-line tool:
+  `python3 -m src.regime.cli SCOPE-003 --regime uk_proposed`
+- `argparse.ArgumentParser`, `.add_argument()` with `choices=`, and
+  `parser.parse_args()` — turns a script into something runnable with
+  flags instead of hardcoded values.
+
+**Design decision:** kept new scope-check data in its own file
+(`data/regime_scope_examples.csv`) rather than extending
+`sample_trades.csv`. Scope ("is this reportable at all") and validation
+("is this filled in correctly") are genuinely different regulatory
+questions, and it avoided touching a file three days of tests already
+depend on.
+
+**Tests:** 49 passing (43 + 6 new for scope_rules.py).
+
+**Source:** FCA CP25/32 (21 Nov 2025), paragraphs 1.6, 4.49, 4.83–4.96.
