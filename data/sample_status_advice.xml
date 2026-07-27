@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:auth.031.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:auth.031.001.01 auth.031.001.01.xsd">
+  <FinInstrmRptgStsAdvc>
+    <MsgStsAdvc>
+      <MsgRptIdr>TrasnactionFile1</MsgRptIdr>
+      <MsgSts>
+        <RptSts>PART</RptSts>
+        <Sttstcs>
+          <TtlNbOfRcrds>8</TtlNbOfRcrds>
+          <NbOfRcrdsPerSts>
+            <DtldNbOfTxs>3</DtldNbOfTxs>
+            <DtldSts>PDNG</DtldSts>
+          </NbOfRcrdsPerSts>
+          <NbOfRcrdsPerSts>
+            <DtldNbOfTxs>2</DtldNbOfTxs>
+            <DtldSts>RJCT</DtldSts>
+          </NbOfRcrdsPerSts>
+          <NbOfRcrdsPerSts>
+            <DtldNbOfTxs>3</DtldNbOfTxs>
+            <DtldSts>ACPT</DtldSts>
+          </NbOfRcrdsPerSts>
+        </Sttstcs>
+      </MsgSts>
+      <RcrdSts>
+        <OrgnlRcrdId>00987654321009876543TXN13</OrgnlRcrdId>
+        <Sts>RJCT</Sts>
+        <VldtnRule>
+          <Id>CON-412</Id>
+          <Desc>Instrument Inst1 is not valid in reference data on transaction date</Desc>
+          <Issr>Entity</Issr>
+        </VldtnRule>
+      </RcrdSts>
+      <RcrdSts>
+        <OrgnlRcrdId>00987654321009876543TXN151</OrgnlRcrdId>
+        <Sts>PDNG</Sts>
+        <VldtnRule>
+          <Id>CON-411</Id>
+          <Desc>Pending instrument Inst5 validation</Desc>
+        </VldtnRule>
+      </RcrdSts>
+      <RcrdSts>
+        <OrgnlRcrdId>00987654321009876543TXN152</OrgnlRcrdId>
+        <Sts>PDNG</Sts>
+        <VldtnRule>
+          <Id>CON-411</Id>
+          <Desc>Pending instrument Inst5 validation</Desc>
+        </VldtnRule>
+      </RcrdSts>
+      <RcrdSts>
+        <OrgnlRcrdId>00987654321009876543TXN161</OrgnlRcrdId>
+        <Sts>PDNG</Sts>
+        <VldtnRule>
+          <Id>CON-411</Id>
+          <Desc>Pending instrument Inst5 validation</Desc>
+        </VldtnRule>
+      </RcrdSts>
+      <RcrdSts>
+        <OrgnlRcrdId>00987654321009876543TXN12</OrgnlRcrdId>
+        <Sts>RJCT</Sts>
+        <VldtnRule>
+          <Id>CON-023</Id>
+          <Desc>Transaction report with the same transaction reference number has already been sent for the firm</Desc>
+          <Issr>Entity</Issr>
+        </VldtnRule>
+      </RcrdSts>
+    </MsgStsAdvc>
+  </FinInstrmRptgStsAdvc>
+</Document>

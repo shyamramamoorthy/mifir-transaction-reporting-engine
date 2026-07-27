@@ -19,3 +19,4 @@ Primary sources read and used to build this project.
 | MiFIR T+1 reporting deadline | MiFIR Article 26(1) | https://www.legislation.gov.uk/eur/2014/600/article/26 |
 | ISO 20022 auth.016.001.01 XML schema tags | ESMA/2016/1521 Technical Reporting Instructions, section 6.2 | https://www.esma.europa.eu/sites/default/files/library/2016-1521_guidelines_mifid_ii_transaction_reporting.pdf |
 | UK vs EU MiFIR reporting scope (proposed reform) | FCA CP25/32, "Improving the UK transaction reporting regime" | https://www.fca.org.uk/publication/consultation/cp25-32.pdf |
+| ISO 20022 auth.031.001.01 status advice message structure | ESMA/2016/1521 Technical Reporting Instructions, section 6.3 | https://www.esma.europa.eu/sites/default/files/library/2016-1521_mifir_transaction_reporting_technical_reporting_instructions.pdf |

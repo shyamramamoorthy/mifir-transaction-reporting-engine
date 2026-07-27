@@ -152,3 +152,31 @@ actually hold together as one thing.
 
 **Tests:** 51 passing, all verified via fresh `git clone` after every
 day's push — nothing in this repo has ever been taken on faith.
+
+## Day 8
+
+Closed the loop on the reporting lifecycle: everything up to now submitted
+reports; nothing read what came back.
+
+**Status advice parsing (`src/feedback/status_parser.py`)**
+- Learned to parse XML, not just build it: `ET.fromstring()` to load an
+  existing document, then `.find()`/`.findall()` to search it.
+- The wrinkle: our XML declares a default namespace, so every search path
+  needs a `namespaces` dict (`{"ns": "urn:iso:..."}`) and an `ns:` prefix
+  on each tag — a bare tag name silently matches nothing.
+- Test fixture is ESMA's own worked example from their Technical Reporting
+  Instructions, not invented data — including a typo in ESMA's own
+  document (`TrasnactionFile1`). Good reminder that primary sources aren't
+  infallible either.
+
+**Reconciliation (`src/feedback/reconcile.py`)**
+- The single most useful thing in this day's source material (ESMA
+  paragraph 111): if a submitted transaction doesn't appear in the status
+  advice feedback at all, it was accepted. The ARM only reports back on
+  transactions with something to say. Easy to get backwards if you didn't
+  know to look for it.
+
+**Tests:** 61 passing (51 + 10 new for status parsing and reconciliation).
+
+**Source:** ESMA/2016/1521 Technical Reporting Instructions, section 6.3
+(paragraphs 100–114).
