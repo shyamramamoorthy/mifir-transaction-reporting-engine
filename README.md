@@ -62,3 +62,15 @@ All 65 RTS 22 fields
 are modelled; a subset (the fields a simple on-venue equity/ETF trade
 actually populates) are wired end-to-end through mapping, validation, and
 XML export. See `docs/LEARNING_LOG.md` for the day-by-day build log.
+
+
+To take it through the full pipeline
+python3 -m scripts.run_pipeline TRD-001
+
+Trade
+   ↓
+Field Mapper
+   ↓
+Validation Engine
+   ↓
+ISO 20022 XML
