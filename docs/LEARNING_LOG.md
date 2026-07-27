@@ -180,3 +180,27 @@ reports; nothing read what came back.
 
 **Source:** ESMA/2016/1521 Technical Reporting Instructions, section 6.3
 (paragraphs 100–114).
+
+## Day 9
+
+Closed the loop from rejection back to correction — the last piece of the
+submit → validate → export → get feedback → remediate lifecycle.
+
+**Remediation (`src/feedback/remediation.py`)**
+- Deliberately did NOT try to auto-fix a rejected trade. A rejection like
+  "instrument not valid in reference data" needs a human (or an upstream
+  system) to work out the actual correct value — no code can infer that
+  from the rejection message alone.
+- What's genuinely mechanical: building the CANC half of the CANC/NEWT
+  pair from Day 5, since that only needs identifiers already on hand
+  (reference number, executing/submitting entity). The module automates
+  exactly that, and explicitly flags what still needs human judgment
+  rather than pretending to close a loop it can't actually close.
+- This felt like the right instinct to practice deliberately: knowing
+  where automation genuinely ends and a person needs to take over is as
+  much a part of good delivery as knowing where it can be extended.
+
+**Tests:** 64 passing (61 + 3 new for remediation).
+
+**Source:** builds directly on ESMA/2016/1521 section 6.3 (Day 8) and the
+CANC/NEWT correction workflow (Day 5) — no new primary source needed.
