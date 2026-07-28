@@ -5,6 +5,8 @@ primary regulatory sources rather than summaries — ESMA's RTS 22 legal
 text and Technical Reporting Instructions, the FCA's live 2025/26 reform
 consultation, and the ISO standards behind LEI and ISIN checksums.
 
+**Live demo:** https://mifir-transaction-reporting-engine-jangapp65fbrvloeyyucew.streamlit.app
+
 ## Why this exists
 
 Built as a structured way to learn MiFIR transaction reporting in depth:

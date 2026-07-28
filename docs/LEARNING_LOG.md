@@ -204,3 +204,37 @@ submit → validate → export → get feedback → remediate lifecycle.
 
 **Source:** builds directly on ESMA/2016/1521 section 6.3 (Day 8) and the
 CANC/NEWT correction workflow (Day 5) — no new primary source needed.
+
+## Day 10
+
+Built and deployed a Streamlit dashboard — the presentation layer over
+everything built across Days 1-9.
+
+**What it covers**
+- Trade pipeline tab: pick a sample trade, see it mapped, validated, and
+  (if clean) exported to XML — the same flow as `scripts/run_pipeline.py`,
+  now clickable instead of terminal-only.
+- Regime scope tab: pick a sample instrument, see IN/OUT OF SCOPE across
+  EU, UK current, and UK proposed side by side.
+- Feedback & remediation tab: the real ESMA status advice example, parsed,
+  reconciled, and turned into next actions.
+
+**Python concept: Streamlit**
+- Declarative UI — no event handlers to wire up. `st.selectbox(...)`
+  returns the current value directly; the whole script re-runs top to
+  bottom on every interaction, which took some getting used to coming
+  from imperative loops in the rest of the codebase.
+
+**Deployment**
+- Deployed to Streamlit Community Cloud, connected directly to the GitHub
+  repo — meaning it stays in sync with `main` without a separate deploy
+  step. Live URL added to the README.
+- Caught a real mistake before it caused problems: created the
+  dependency file as `requirement.txt` (missing the "s") — harmless
+  locally since I had streamlit installed anyway, but would have broken
+  the cloud deploy, since Streamlit Cloud looks for `requirements.txt`
+  by that exact name to know what to install. Fixed with `git mv`.
+
+This is the last planned day. All ten days verified independently via
+fresh `git clone` after every push, all rules traceable to a primary
+source, nothing taken on faith.
